@@ -16,6 +16,9 @@ class TestBowlingGame(unittest.TestCase):
         self.game.roll_ball(5)
         self.game.roll_ball(5)
 
+    def roll_strike(self):
+        return self.game.roll_ball(10)
+
     def test_gutter_game(self):
         self.roll_many(20, 0)
         self.assertEqual(0, self.game.get_score())
@@ -28,6 +31,13 @@ class TestBowlingGame(unittest.TestCase):
         self.roll_spare()
         self.game.roll_ball(7)
         self.roll_many(17, 0)
+        self.assertEqual(24, self.game.get_score())
+
+    def test_one_strike_game(self):
+        self.roll_strike()
+        self.game.roll_ball(3)
+        self.game.roll_ball(4)
+        self.roll_many(16, 0)
         self.assertEqual(24, self.game.get_score())
 
 
