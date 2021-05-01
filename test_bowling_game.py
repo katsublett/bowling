@@ -12,6 +12,12 @@ class TestBowlingGame(unittest.TestCase):
         game = BowlingGame()
         game.roll_ball(5)
 
+    def test_gutter_game(self):
+        game = BowlingGame()
+        for pins in range(20):
+            game.roll_ball(0)
+        self.assertEqual(0, game.get_score())
+
 
 if __name__ == '__main__':
     unittest.main()
