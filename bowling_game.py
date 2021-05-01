@@ -30,7 +30,7 @@ class BowlingGame:
             if self.is_strike(first_ball):
                 score += 10 + self.strike_bonus(first_ball)
                 first_ball += 1
-            if self.is_spare(first_ball):
+            elif self.is_spare(first_ball):
                 score += 10 + self.spare_bonus(first_ball)
                 first_ball += 2
             else:
