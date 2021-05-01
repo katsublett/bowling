@@ -26,7 +26,7 @@ class TestBowlingGame(unittest.TestCase):
 
     def test_one_spare_game(self):
         self.roll_spare()
-        self.game.roll_ball(7)  # bonus ball (counted twicce)
+        self.game.roll_ball(7)
         self.roll_many(17, 0)
         self.assertEqual(24, self.game.get_score())
 
