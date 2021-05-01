@@ -1,2 +1,3 @@
 class BowlingGame:
-    pass
+    def roll_ball(self, pins):
+        return pins
