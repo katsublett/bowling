@@ -1,9 +1,23 @@
 class BowlingGame:
     def __init__(self):
-        self.score = 0
+        self.rolls = [0] * 21
+        self.current_roll = 0
 
     def roll_ball(self, pins):
-        self.score += pins
+        self.rolls[self.current_roll] = pins
+        self.current_roll += 1
 
     def get_score(self):
-        return self.score
+        score = 0
+        first_ball_in_frame = 0
+
+        for frame in range(0, 10):
+            if self.rolls[first_ball_in_frame] + self.rolls[first_ball_in_frame + 1] == 10:
+                score += 10 + self.rolls[first_ball_in_frame + 2]
+                first_ball_in_frame += 2
+            else:
+                score += self.rolls[first_ball_in_frame] + \
+                    self.rolls[first_ball_in_frame + 1]
+                first_ball_in_frame += 2
+
+        return score
